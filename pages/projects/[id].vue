@@ -170,6 +170,9 @@ const reloadProject = async () => {
 const close = () => {
   addSetDialog.value = false;
 }
+const closeConfirmSet = () => {
+  confirmSetDialog.value = false
+}
 const closeUpload = () => {
   addUploadDialog.value = false;
 }
@@ -790,7 +793,7 @@ const updateSetItem = async (set, item, itemId) => {
                       }}</span></v-card-title>
                       <v-card-text class="mb-5 text-center">
                         <FormConfirmSet :projectId="thisProject.id" :setId="item.id" :sets="thisProject.sets"
-                          :fellow="thisProject.fellow?.id" :mentor="thisProject.mentor?.id" @close="close"
+                          :fellow="thisProject.fellow?.id" :mentor="thisProject.mentor?.id" @close="closeConfirmSet"
                           @confirm="reloadProject" />
                       </v-card-text>
                     </v-card>
