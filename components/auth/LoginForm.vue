@@ -38,13 +38,13 @@ const apiError = ref("");
     <VTextField v-model="password" :rules="passwordRules" required hide-details="auto" type="password" class="pwdInput">
     </VTextField>
     <v-row class="d-flex mb-1 align-center">
-      <v-col cols="6" sm="6" class="pl-0">
+      <v-col cols="7" sm="7" class="pl-0">
         <v-checkbox v-model="checkbox" :rules="[(v: any) => !!v || 'You must agree to continue!']" required hide-details
           color="primary">
-          <template v-slot:label>Remeber this Device</template>
+          <template v-slot:label>Remember this Device</template>
         </v-checkbox>
       </v-col>
-      <v-col cols="6" sm="6" class="pr-0">
+      <v-col cols="5" sm="5" class="pr-0 text-right">
         <NuxtLink to="" class="text-primary text-decoration-none text-body-1 opacity-1 font-weight-medium">Forgot Password
             ?</NuxtLink>
       </v-col>
