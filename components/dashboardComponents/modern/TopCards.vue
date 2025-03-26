@@ -11,34 +11,34 @@ const projectCount = reactive({
     bgcolor: 'custom1'
 });
 
-// const fellows = await find<any>('users', {
-//     filters: {
-//         role: {
-//             name: {
-//                 $eq: 'Fellow'
-//             }
-//         }
-//     }
-// });
+const fellows = await find<any>('users', {
+    filters: {
+        role: {
+            name: {
+                $eq: 'Fellow'
+            }
+        }
+    }
+});
 
 const fellowCount = reactive({
     name: 'Fellows',
-    count: 1,
+    count: fellows.length,
     bgcolor: 'custom2'
 });
 
-// const mentors = await find<any>('users', {filters: {
-//         role: {
-//             name: {
-//                 $eq: 'Mentor'
-//             }
-//         }
-//     }
-// });
+const mentors = await find<any>('users', {filters: {
+        role: {
+            name: {
+                $eq: 'Mentor'
+            }
+        }
+    }
+});
 
 const mentorsCount = reactive({
     name: 'Mentors',
-    count: 1,
+    count: mentors.length,
     bgcolor: 'custom8'
 });
 
