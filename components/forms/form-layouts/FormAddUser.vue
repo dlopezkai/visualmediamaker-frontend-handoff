@@ -20,7 +20,7 @@ const resRoles = await find('users-permissions/roles');
 // Computed
 const rolesList = computed(() => {
     return resRoles.roles.filter((r: any) => {
-        return r.name !== 'Public';
+        return r.name !== 'Public' && r.name !== 'Authenticated';
     });
 });
 
