@@ -59,6 +59,7 @@ const headers = reactive([
 ]);
 const loading = ref(true);
 const itemsPerPage = ref(10);
+const totalItems = ref<Number>(0);
 
 
 //Methods
@@ -121,6 +122,8 @@ const loadItems = async ({ page, itemsPerPage, sortBy, search }) => {
     }
     usersList.value = await find('users', itemQuery.value);
     // console.log("users: ", filteredUsersList);
+
+    totalItems.value = filteredUsersList.value.length;
 }
 
 const editUser = async (userId) => {
