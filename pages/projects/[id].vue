@@ -834,7 +834,7 @@ const updateSetItem = async (set, item, itemId) => {
                             <v-divider v-if="i !== 0"></v-divider>
 
                             <v-list-item
-                              :disabled="!item.active ? true : isAdmin || task.assigned == 'both' || (task.assigned == 'fellow' && isFellow) || (task.assigned == 'mentor' && isMentor) ? false : true">
+                              :disabled="!item.active ? true : isAdmin || task.assigned == 'both' || (task.assigned == 'fellow' && (isFellow || isMentor)) || (task.assigned == 'mentor' && isMentor) ? false : true">
                               <v-row class="d-flex align-center">
                                 <v-col cols="9">
                                   <v-list-item-action>
