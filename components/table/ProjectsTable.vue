@@ -94,7 +94,7 @@ const newProjectAdded = async (info) => {
     dialog.value = false;
     loading.value = true;
     newProjectInfo.value = info;
-    let res = await find('projects', {populate: '*', fields: ['id', 'name', 'fellow', 'mentor', 'program', 'createdAt']});
+    let res = await find('projects', {populate: '*', fields: ['id', 'name', 'program', 'createdAt']});
     projectsList.value = res.data;
     totalItems.value = res.meta.pagination.total;
     successDialog.value = true;
@@ -109,8 +109,8 @@ const loadItems = async ({ page, itemsPerPage, sortBy, search }) => {
     if(search) {
         itemQuery.value = {
             populate: '*', 
-            fields: ['id', 'name', 'fellow', 'mentor', 'program', 'createdAt'],
-            sort: `${sortBy[0]?.key}:${sortBy[0]?.order}`,
+            fields: ['id', 'name', 'program', 'createdAt'],
+            sort: (!sortBy[0] ? `createdAt:asc` : `${sortBy[0]?.key}:${sortBy[0]?.order}`),
             pagination: {page: page, pageSize: itemsPerPage},
             filters: {
                 $or: [
